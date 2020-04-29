@@ -1,3 +1,11 @@
+import json
+import boto3
+import requests
+import pandas as pd
+from fractions import Fraction
+from functools import reduce
+from datetime import datetime, timedelta
+
 # set the URL
 url = 'https://www.vegasinsider.com/nfl/odds/futures/'
 
