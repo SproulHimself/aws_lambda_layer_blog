@@ -22,10 +22,14 @@ df.index += 1
 # instantiate S3 object
 s3 = boto3.client('s3')
 
-# format datetime str for file storage (w/ EST timezone)
-day_and_time = (timedelta(hours=-4) + datetime.now()).strftime("%b-%d-%Y-%H%M%S")
+# set datetime str w/ EST timezone adjustment and Daylight Savings
+if datetime.now().month in range(4,11):
+    day_and_time = (timedelta(hours=-4) + datetime.now())
+else:
+    day_and_time = (timedelta(hours=-5) + datetime.now())
+day_and_time = day_and_time.strftime("%b-%d-%Y-%H%M%S")
 
-# the two different paths used in uploading
+# the two different file paths used for uploading
 scraped_file_path = '/tmp/SB_odds_' + str(day_and_time) + '.csv'
 path_name_for_bucket = scraped_file_path[5:]
 
