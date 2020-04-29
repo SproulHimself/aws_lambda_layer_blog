@@ -24,9 +24,6 @@ df.odds = df.odds.apply(lambda x: 100*float(Fraction(x)))
 # format the row into string w/ "+"
 df.odds = df.odds.apply(lambda x: '+' + str('%g'%(x)))
 
-# move the index; uncesessary, but visually pleasing
-df.index += 1
-
 # instantiate S3 object
 s3 = boto3.client('s3')
 
