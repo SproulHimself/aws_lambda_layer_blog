@@ -1,4 +1,4 @@
-# aws_lambda_layer_blog
+# AWS Lambda Layer Blog Post
 
 The is the repository that goes along with my blog post
 
